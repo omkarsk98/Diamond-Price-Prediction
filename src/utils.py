@@ -46,3 +46,13 @@ def evaluateModel(xTrain, yTrain, xTest, yTest, models):
   except Exception as e:
     logging.info("Model evaluation failed")
     raise CustomException(e, sys)
+
+def loadObject(filePath):
+  try:
+    with open(filePath, "rb") as f:
+      obj = pickle.load(f)
+    return obj
+
+  except Exception as e:
+    logging.info("Object loading failed")
+    raise CustomException(e, sys)
